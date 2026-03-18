@@ -1,11 +1,6 @@
-# my_hdl.py
-from comopy import *
+from comopy.hdl import *
 
 class SimpleDut(RawModule):
-    def __init__(self):
-        # 显式给它一个名字，方便 Simulator 识别
-        super().__init__(name="SimpleDut")
-        
     @build
     def ports(s):
         s.clk = Input(1)
@@ -13,4 +8,5 @@ class SimpleDut(RawModule):
 
     @comb
     def logic(s):
-        s.q /= s.clk  # 至少有一条连线
+
+        s.q /= s.clk
